@@ -1,0 +1,453 @@
+{
+    "nodes": {
+        "jobs": [
+            {
+                "~id": "30d1e004-0579-44d8-a5e7-a19a0a2868f2",
+                "~label": "JOB",
+                "name:String": "Job1",
+                "account_id:String": "123456789012",
+                "sigla:String": "TS1",
+                "tool:String": "Glue",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-29 12:00:00 UTC"
+            },
+            {
+                "~id": "b2c1e004-0579-44d8-a5e7-a19a0a2868f3",
+                "~label": "JOB",
+                "name:String": "Job2",
+                "account_id:String": "123456789012",
+                "sigla:String": "TS1",
+                "tool:String": "Glue",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 21:00:00 UTC"
+            },
+            {
+                "~id": "c3d1e004-0579-44d8-a5e7-a19a0a2868f4",
+                "~label": "JOB",
+                "name:String": "Job3",
+                "account_id:String": "123456789012",
+                "sigla:String": "TS1",
+                "tool:String": "Glue",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 19:45:00 UTC"
+            },
+            {
+                "~id": "d4e1e004-0579-44d8-a5e7-a19a0a2868f5",
+                "~label": "JOB",
+                "name:String": "Job4",
+                "account_id:String": "123456789012",
+                "sigla:String": "TS1",
+                "tool:String": "Glue",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 18:30:00 UTC"
+            }
+        ],
+        "job_runs": [
+            {
+                "~id": "09c46e32-9c93-475e-85b2-3a889b4eeb21",
+                "~label": "JOB_RUN",
+                "id:String": "jr_c450154b86d770c38f8cf4dac2ef16a47648037eae1b264f675b84daff2096c9",
+                "dt_update:String": "2025-06-29 12:00:00 UTC"
+            },
+            {
+                "~id": "90ef29a0-db4e-484d-97a4-6cc26294ed2c",
+                "~label": "JOB_RUN",
+                "id:String": "jr_1a2b3c4d5e6f7081928374655647382910abcdefabcdefabcdefabcdefabcdef",
+                "dt_update:String": "2025-06-28 21:00:00 UTC"
+            },
+            {
+                "~id": "76802737-1860-48be-8098-bf0a4929c085",
+                "~label": "JOB_RUN",
+                "id:String": "jr_abcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcdefabcd",
+                "dt_update:String": "2025-06-28 19:45:00 UTC"
+            },
+            {
+                "~id": "f1b0ca7a-c3bb-43bd-b2cf-99401cbb0e49",
+                "~label": "JOB_RUN",
+                "id:String": "jr_1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcd",
+                "dt_update:String": "2025-06-28 18:30:00 UTC"
+            },
+            {
+                "~id": "f1525a54-56c6-4fe5-a553-f70fe43e338f",
+                "~label": "JOB_RUN",
+                "id:String": "jr_9876543210fedcba9876543210fedcba9876543210fedcba9876543210fedc",
+                "dt_update:String": "2025-06-28 17:15:00 UTC"
+            },
+            {
+                "~id": "34ff1573-c27a-49d5-b63d-7bfdcd5bf899",
+                "~label": "JOB_RUN",
+                "id:String": "jr_ffeeddccbbaa99887766554433221100ffeeddccbbaa99887766554433221100",
+                "dt_update:String": "2025-06-28 16:00:00 UTC"
+            }
+        ],
+        "execution_plans": [
+            {
+                "~id": "a049419f-8978-49a0-a3fd-059209b44d5b",
+                "~label": "EXECUTION_PLAN",
+                "id:String": "9ecd36a0-0b67-45ff-b2e4-a3be02517e9b",
+                "dt_update:String": "2025-06-29 12:00:00 UTC"
+            },
+            {
+                "~id": "304df2b6-abb6-4ca1-945f-fb08a06b44cc",
+                "~label": "EXECUTION_PLAN",
+                "id:String": "8f7d6c5b-4a3b-4c2d-b1e0-9f8e7d6c5b4a",
+                "dt_update:String": "2025-06-28 21:00:00 UTC"
+            },
+            {
+                "~id": "0b7c5abb-d692-481d-8d78-90cb21d91219",
+                "~label": "EXECUTION_PLAN",
+                "id:String": "7e6d5c4b-3a2b-1c0d-e9f8-7d6c5b4a3b2c",
+                "dt_update:String": "2025-06-28 19:45:00 UTC"
+            },
+            {
+                "~id": "c8e031d7-07fd-4d6b-b015-86798ee81795",
+                "~label": "EXECUTION_PLAN",
+                "id:String": "6d5c4b3a-2b10c9e8-7d6c5b4a3b2b",
+                "dt_update:String": "2025-06-28 18:30:00 UTC"
+            },
+            {
+                "~id": "eab3c226-b29f-4617-941a-cfa4279edef3",
+                "~label": "EXECUTION_PLAN",
+                "id:String": "5c4b3a2b-10c9e8f7-6d5c4b3a2b1c",
+                "dt_update:String": "2025-06-28 17:15:00 UTC"
+            },
+            {
+                "~id": "a0bf36b4-a38c-428b-9f4a-9492f1c1d59e",
+                "~label": "EXECUTION_PLAN",
+                "id:String": "4b3a2b10-c9e8f7d6-5c4b3a2b1c0d",
+                "dt_update:String": "2025-06-28 16:00:00 UTC"
+            }
+        ],
+        "tables": [
+            {
+                "~id": "c3394311-b349-40fb-9079-604c02827034",
+                "~label": "TABLE",
+                "table_name:String": "Table1",
+                "db_name:String": "Database1",
+                "location_path:String": "s3://bucket-teste/table1/",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-29 12:00:00 UTC"
+            },
+            {
+                "~id": "0094f9bf-d322-46f9-b700-af40c2201d05",
+                "~label": "TABLE",
+                "table_name:String": "Table2",
+                "db_name:String": "Database1",
+                "location_path:String": "s3://bucket-teste/table2/",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 21:00:00 UTC"
+            },
+            {
+                "~id": "c7b8b588-608c-4c51-88f2-f21fbe913024",
+                "~label": "TABLE",
+                "table_name:String": "Table3",
+                "db_name:String": "Database1",
+                "location_path:String": "s3://bucket-teste/table3/",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 19:45:00 UTC"
+            },
+            {
+                "~id": "ed43b9a9-a4c9-496a-ab41-0d956dd974d8",
+                "~label": "TABLE",
+                "table_name:String": "Table4",
+                "db_name:String": "Database1",
+                "location_path:String": "s3://bucket-teste/table4/",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 18:30:00 UTC"
+            },
+            {
+                "~id": "8776864b-7517-4f2b-9303-752fe364228d",
+                "~label": "TABLE",
+                "table_name:String": "Table5",
+                "db_name:String": "Database1",
+                "location_path:String": "s3://bucket-teste/table5/",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 17:15:00 UTC"
+            },
+            {
+                "~id": "8e7c3be6-e972-42b6-ad60-e96c5be789c2",
+                "~label": "TABLE",
+                "table_name:String": "Table6",
+                "db_name:String": "Database1",
+                "location_path:String": "s3://bucket-teste/table6/",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 16:00:00 UTC"
+            },
+            {
+                "~id": "467aa82a-cf37-418d-a1d5-c80e2ed10159",
+                "~label": "TABLE",
+                "table_name:String": "Table7",
+                "db_name:String": "Database1",
+                "location_path:String": "s3://bucket-teste/table7/",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 15:45:00 UTC"
+            },
+            {
+                "~id": "950a074a-febb-486a-8967-3ded4156ac63",
+                "~label": "TABLE",
+                "table_name:String": "Table8",
+                "db_name:String": "Database1",
+                "location_path:String": "s3://bucket-teste/table8/",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 15:30:00 UTC"
+            },
+            {
+                "~id": "d118a4b1-8bcd-457c-af37-36469b21393e",
+                "~label": "TABLE",
+                "table_name:String": "Table9",
+                "db_name:String": "Database1",
+                "location_path:String": "s3://bucket-teste/table9/",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 15:15:00 UTC"
+            },
+            {
+                "~id": "bda14858-552e-4e8c-b309-cce3cedbfbb1",
+                "~label": "TABLE",
+                "table_name:String": "Table10",
+                "db_name:String": "Database1",
+                "location_path:String": "s3://bucket-teste/table10/",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 15:00:00 UTC"
+            },
+            {
+                "~id": "1f849355-0fa7-4832-b4b4-3d9198af459c",
+                "~label": "TABLE",
+                "table_name:String": "Table11",
+                "db_name:String": "Database1",
+                "location_path:String": "s3://bucket-teste/table11/",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 14:45:00 UTC"
+            }
+        ]
+    },
+    "edges": [
+        {
+            "~id": "7d2e33e6-4ffc-47d7-bf53-e19a03f349ca",
+            "~label": "schedule",
+            "~from": "30d1e004-0579-44d8-a5e7-a19a0a2868f2",
+            "~to": "09c46e32-9c93-475e-85b2-3a889b4eeb21"
+        },
+        {
+            "~id": "8e3f44f7-5a0d-4b8c-bf64-f20b14c4d5e6",
+            "~label": "has",
+            "~from": "09c46e32-9c93-475e-85b2-3a889b4eeb21",
+            "~to": "a049419f-8978-49a0-a3fd-059209b44d5b"
+        },
+        {
+            "~id": "40411901-9171-4dda-9230-f06ef2d08bb9",
+            "~label": "consumed_by",
+            "~from": "c3394311-b349-40fb-9079-604c02827034",
+            "~to": "a049419f-8978-49a0-a3fd-059209b44d5b"
+        },
+        {
+            "~id": "f41449ce-ae11-46ac-a05f-1cfd2aec44a1",
+            "~label": "consumed_by",
+            "~from": "0094f9bf-d322-46f9-b700-af40c2201d05",
+            "~to": "a049419f-8978-49a0-a3fd-059209b44d5b"
+        },
+        {
+            "~id": "d964faa0-9e09-4a0b-b3dd-49f3f15378ee",
+            "~label": "consumed_by",
+            "~from": "c7b8b588-608c-4c51-88f2-f21fbe913024",
+            "~to": "a049419f-8978-49a0-a3fd-059209b44d5b"
+        },
+        {
+            "~id": "72a9c2f5-3874-413f-bf3e-91f2f1216c0b",
+            "~label": "consumed_by",
+            "~from": "ed43b9a9-a4c9-496a-ab41-0d956dd974d8",
+            "~to": "a049419f-8978-49a0-a3fd-059209b44d5b"
+        },
+        {
+            "~id": "62f41611-7a6b-438a-b8d2-5f3968ede20c",
+            "~label": "consumed_by",
+            "~from": "8776864b-7517-4f2b-9303-752fe364228d",
+            "~to": "a049419f-8978-49a0-a3fd-059209b44d5b"
+        },
+        {
+            "~id": "f1974fe1-4c6b-4f87-bec4-ec0feaab4ab9",
+            "~label": "consumed_by",
+            "~from": "8e7c3be6-e972-42b6-ad60-e96c5be789c2",
+            "~to": "a049419f-8978-49a0-a3fd-059209b44d5b"
+        },
+        {
+            "~id": "jdhf8d7f-4c6b-4f87-bec4-ec0feaab4ab9",
+            "~label": "produce",
+            "~from": "a049419f-8978-49a0-a3fd-059209b44d5b",
+            "~to": "467aa82a-cf37-418d-a1d5-c80e2ed10159"
+        },
+        {
+            "~id": "95851b8f-9dad-432e-9419-d864c3173d0a",
+            "~label": "schedule",
+            "~from": "30d1e004-0579-44d8-a5e7-a19a0a2868f2",
+            "~to": "34ff1573-c27a-49d5-b63d-7bfdcd5bf899"
+        },
+        {
+            "~id": "e1c92cb6-3ca0-475b-8ba1-08a63208e8f5",
+            "~label": "has",
+            "~from": "34ff1573-c27a-49d5-b63d-7bfdcd5bf899",
+            "~to": "a0bf36b4-a38c-428b-9f4a-9492f1c1d59e"
+        },
+        {
+            "~id": "e185c72d-4a41-4ddb-b8d1-c73bfb379646",
+            "~label": "consumed_by",
+            "~from": "c3394311-b349-40fb-9079-604c02827034",
+            "~to": "a0bf36b4-a38c-428b-9f4a-9492f1c1d59e"
+        },
+        {
+            "~id": "5761d90b-20ae-469b-a93c-f7b5d728d714",
+            "~label": "consumed_by",
+            "~from": "0094f9bf-d322-46f9-b700-af40c2201d05",
+            "~to": "a0bf36b4-a38c-428b-9f4a-9492f1c1d59e"
+        },
+        {
+            "~id": "8e9ad3c9-d980-4ea1-95f2-2572bf0b037e",
+            "~label": "consumed_by",
+            "~from": "c7b8b588-608c-4c51-88f2-f21fbe913024",
+            "~to": "a0bf36b4-a38c-428b-9f4a-9492f1c1d59e"
+        },
+        {
+            "~id": "c2ea6fbc-b88c-4a57-b121-30e2842b768c",
+            "~label": "consumed_by",
+            "~from": "ed43b9a9-a4c9-496a-ab41-0d956dd974d8",
+            "~to": "a0bf36b4-a38c-428b-9f4a-9492f1c1d59e"
+        },
+        {
+            "~id": "c85ac42a-e78f-4462-9e9c-a2146741434a",
+            "~label": "consumed_by",
+            "~from": "8776864b-7517-4f2b-9303-752fe364228d",
+            "~to": "a0bf36b4-a38c-428b-9f4a-9492f1c1d59e"
+        },
+        {
+            "~id": "10936a43-1184-4b42-a139-98df307875a6",
+            "~label": "consumed_by",
+            "~from": "8e7c3be6-e972-42b6-ad60-e96c5be789c2",
+            "~to": "a0bf36b4-a38c-428b-9f4a-9492f1c1d59e"
+        },
+        {
+            "~id": "e5fef804-5ffd-4d92-bdbd-74d680f513b1",
+            "~label": "produce",
+            "~from": "a0bf36b4-a38c-428b-9f4a-9492f1c1d59e",
+            "~to": "467aa82a-cf37-418d-a1d5-c80e2ed10159"
+        },
+        {
+            "~id": "5ba2257c-3c89-4a48-bb96-3a5d0d0ebb96",
+            "~label": "schedule",
+            "~from": "b2c1e004-0579-44d8-a5e7-a19a0a2868f3",
+            "~to": "90ef29a0-db4e-484d-97a4-6cc26294ed2c"
+        },
+        {
+            "~id": "da59911b-ccc8-4168-bdc0-ff6a693d3a62",
+            "~label": "has",
+            "~from": "90ef29a0-db4e-484d-97a4-6cc26294ed2c",
+            "~to": "304df2b6-abb6-4ca1-945f-fb08a06b44cc"
+        },
+        {
+            "~id": "732fe873-2a0e-4911-af1f-fe5c24eae180",
+            "~label": "consumed_by",
+            "~from": "467aa82a-cf37-418d-a1d5-c80e2ed10159",
+            "~to": "304df2b6-abb6-4ca1-945f-fb08a06b44cc"
+        },
+        {
+            "~id": "0571e13d-a610-410f-8223-d6928c325070",
+            "~label": "produce",
+            "~from": "304df2b6-abb6-4ca1-945f-fb08a06b44cc",
+            "~to": "950a074a-febb-486a-8967-3ded4156ac63"
+        },
+        {
+            "~id": "c1f2e3d4-5b6a-7c8d-9e0f-1a2b3c4d5e6f",
+            "~label": "schedule",
+            "~from": "c3d1e004-0579-44d8-a5e7-a19a0a2868f4",
+            "~to": "76802737-1860-48be-8098-bf0a4929c085"
+        },
+        {
+            "~id": "d2e3f4g5-6h7i-8j9k-l0m1-n2o3p4q5r6s7",
+            "~label": "has",
+            "~from": "76802737-1860-48be-8098-bf0a4929c085",
+            "~to": "0b7c5abb-d692-481d-8d78-90cb21d91219"
+        },
+        {
+            "~id": "e3f4g5h6-i7j8-k9l0-m1n2-o3p4q5r6s7t8",
+            "~label": "consumed_by",
+            "~from": "467aa82a-cf37-418d-a1d5-c80e2ed10159",
+            "~to": "0b7c5abb-d692-481d-8d78-90cb21d91219"
+        },
+        {
+            "~id": "f4g5h6i7-j8k9-l0m1-n2o3-p4q5r6s7t8u9",
+            "~label": "produce",
+            "~from": "0b7c5abb-d692-481d-8d78-90cb21d91219",
+            "~to": "d118a4b1-8bcd-457c-af37-36469b21393e"
+        },
+        {
+            "~id": "27b2d528-2b72-4c07-a2f2-60e8e680b8c9",
+            "~label": "schedule",
+            "~from": "d4e1e004-0579-44d8-a5e7-a19a0a2868f5",
+            "~to": "f1b0ca7a-c3bb-43bd-b2cf-99401cbb0e49"
+        },
+        {
+            "~id": "0b06116b-a18d-4f20-a5c7-42936a259147",
+            "~label": "has",
+            "~from": "f1b0ca7a-c3bb-43bd-b2cf-99401cbb0e49",
+            "~to": "c8e031d7-07fd-4d6b-b015-86798ee81795"
+        },
+        {
+            "~id": "e7b1a6ce-6eab-4239-b28b-19332a6430db",
+            "~label": "consumed_by",
+            "~from": "950a074a-febb-486a-8967-3ded4156ac63",
+            "~to": "c8e031d7-07fd-4d6b-b015-86798ee81795"
+        },
+        {
+            "~id": "3314abd6-7035-4982-89c6-de1fd2651578",
+            "~label": "consumed_by",
+            "~from": "d118a4b1-8bcd-457c-af37-36469b21393e",
+            "~to": "c8e031d7-07fd-4d6b-b015-86798ee81795"
+        },
+        {
+            "~id": "895f655e-916f-4452-b369-c89cb5b3bac7",
+            "~label": "produce",
+            "~from": "c8e031d7-07fd-4d6b-b015-86798ee81795",
+            "~to": "bda14858-552e-4e8c-b309-cce3cedbfbb1"
+        },
+        {
+            "~id": "265c24ba-bdf0-4ebf-bbb8-4f00b19a47b4",
+            "~label": "produce",
+            "~from": "c8e031d7-07fd-4d6b-b015-86798ee81795",
+            "~to": "1f849355-0fa7-4832-b4b4-3d9198af459c"
+        },
+        {
+            "~id": "27b2d528-2b72-4c07-a2f2-60e8e680b8c9",
+            "~label": "schedule",
+            "~from": "d4e1e004-0579-44d8-a5e7-a19a0a2868f5",
+            "~to": "f1525a54-56c6-4fe5-a553-f70fe43e338f"
+        },
+        {
+            "~id": "0b06116b-a18d-4f20-a5c7-42936a259147",
+            "~label": "has",
+            "~from": "f1525a54-56c6-4fe5-a553-f70fe43e338f",
+            "~to": "eab3c226-b29f-4617-941a-cfa4279edef3"
+        },
+        {
+            "~id": "e7b1a6ce-6eab-4239-b28b-19332a6430db",
+            "~label": "consumed_by",
+            "~from": "950a074a-febb-486a-8967-3ded4156ac63",
+            "~to": "eab3c226-b29f-4617-941a-cfa4279edef3"
+        },
+        {
+            "~id": "3314abd6-7035-4982-89c6-de1fd2651578",
+            "~label": "consumed_by",
+            "~from": "d118a4b1-8bcd-457c-af37-36469b21393e",
+            "~to": "eab3c226-b29f-4617-941a-cfa4279edef3"
+        },
+        {
+            "~id": "895f655e-916f-4452-b369-c89cb5b3bac7",
+            "~label": "produce",
+            "~from": "eab3c226-b29f-4617-941a-cfa4279edef3",
+            "~to": "bda14858-552e-4e8c-b309-cce3cedbfbb1"
+        },
+        {
+            "~id": "265c24ba-bdf0-4ebf-bbb8-4f00b19a47b4",
+            "~label": "produce",
+            "~from": "eab3c226-b29f-4617-941a-cfa4279edef3",
+            "~to": "1f849355-0fa7-4832-b4b4-3d9198af459c"
+        }
+    ]
+}

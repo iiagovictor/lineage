@@ -1,0 +1,78 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  lambdalineage
+
+  Sample SAM Template for lambdalineage
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 29
+    MemorySize: 128
+
+    # You can add LoggingConfig parameters such as the Logformat, Log Group, and SystemLogLevel or ApplicationLogLevel. Learn more here https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-function.html#sam-function-loggingconfig.
+    LoggingConfig:
+      LogFormat: JSON
+Resources:
+  LineageFunctionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+                - rds.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AdministratorAccess
+
+  LineageFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: lambda/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      Architectures:
+      - x86_64
+      Role: !GetAtt LineageFunctionRole.Arn
+      Environment:
+        Variables:
+          NEPTUNE_ENDPOINT_READER: lineage.cluster-ro-crnxsyfy0tei.us-east-1.neptune.amazonaws.com
+          NEPTUNE_ENDPOINT_WRITER: lineage.cluster-crnxsyfy0tei.us-east-1.neptune.amazonaws.com
+          NEPTUNE_PORT: '8182'
+          NEPTUNE_REGION: us-east-1
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-09d1803dd5784f0dc
+        SubnetIds:
+          - subnet-0e8e0bc73efcecd55
+          - subnet-0f8c7a2ddf2d58c42
+          - subnet-0e7e15b4a4517b96e
+          - subnet-05a77aa13ad665fa1
+          - subnet-079d81a683182ad37
+          - subnet-038003ca8ae1f9a92
+      Events:
+        Lineage:
+          Type: Api
+          Properties:
+            Path: /networks
+            Method: get
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  LineageApi:
+    Description: API Gateway endpoint URL for Prod stage for Hello World 
+      function
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/networks/"
+  LineageFunction:
+    Description: Hello World Lambda Function ARN
+    Value: !GetAtt LineageFunction.Arn
+  LineageFunctionIamRole:
+    Description: Custom IAM Role created for Lambda and RDS
+    Value: !GetAtt LineageFunctionRole.Arn
