@@ -3,7 +3,7 @@ import os
 import logging
 from utils.utils import create_connection, bulk_load_data
 from utils.data_reader import \
-    get_the_subgraph_of_the_table, \
+    get_subgraph_of_the_table, \
     get_subgraph_of_the_job
 
 logger = logging.getLogger()
@@ -31,7 +31,7 @@ def lambda_handler(event, context):
     g = gremlin_utils.traversal_source(connection=conn)
     bulk_load_data(g=g, load_mock=load_mock)
     if node_type == "TABLE":
-        response = get_the_subgraph_of_the_table(
+        response = get_subgraph_of_the_table(
             g=g,
             table_name=node_name,
             level=50
