@@ -257,10 +257,97 @@
                 "location_path:String": "s3://bucket-teste/table13/",
                 "status:String": "ACTIVE",
                 "dt_update:String": "2025-06-28 14:15:00 UTC"
+            },
+            {
+                "~id": "17d673ea-667b-4a9f-af19-495fe58b9048",
+                "~label": "TABLE",
+                "table_name:String": "Table14",
+                "db_name:String": "Database1",
+                "location_path:String": "s3://bucket-teste/table14/",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 14:15:00 UTC"
+            }
+        ],
+        "features": [
+            {
+                "~id": "d704ea4b-3a62-4fe7-ab74-23e25ccd493f",
+                "~label": "FEATURE",
+                "feature_name:String": "Feature1",
+                "book_id:String": "9b1ac4cf-106f-4f70-bb8e-ddeba1e173ad",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-29 12:00:00 UTC"
+            },
+            {
+                "~id": "2edbe504-c241-45d5-96a4-b5aa628e37ed",
+                "~label": "FEATURE",
+                "feature_name:String": "Feature2",
+                "book_id:String": "ac048112-5add-4fd5-9b65-a8cdead4c4d6",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 21:00:00 UTC"
+            },
+            {
+                "~id": "f1a2b3c4-d5e6-7f8g-9h0i-j1k2l3m4n5o6",
+                "~label": "FEATURE",
+                "feature_name:String": "Feature3",
+                "book_id:String": "b2c3d4e5-f6a7-8b9c-d0e1-f2a3b4c5d6e7",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 19:45:00 UTC"
+            }
+        ],
+        "models": [
+            {
+                "~id": "40f3bec4-5ce9-4147-b8e8-856b0175bc31",
+                "~label": "MODEL",
+                "model_name:String": "Model1",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-29 12:00:00 UTC"
+            },
+            {
+                "~id": "b1c2d3e4-f5a6-7b8c-9d0e-f1a2b3c4d5e6",
+                "~label": "MODEL",
+                "model_name:String": "Model2",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 21:00:00 UTC"
             }
         ]
     },
     "edges": [
+        {
+            "~id": "e57db76d-844b-4d71-b12d-752b76e2974c",
+            "~label": "belongs_to_table",
+            "~from": "3e4f5a6b-7c8d-9e0f-a1b2-c3d4e5f6a7b8",
+            "~to": "d704ea4b-3a62-4fe7-ab74-23e25ccd493f" 
+        },
+                {
+            "~id": "96637909-11d4-4bf1-ae83-f427defd85de",
+            "~label": "belongs_to_table",
+            "~from": "3e4f5a6b-7c8d-9e0f-a1b2-c3d4e5f6a7b8",
+            "~to": "2edbe504-c241-45d5-96a4-b5aa628e37ed" 
+        },
+                {
+            "~id": "f7b79525-ca48-4783-b848-eaf47a1636e5",
+            "~label": "belongs_to_table",
+            "~from": "17d673ea-667b-4a9f-af19-495fe58b9048",
+            "~to": "f1a2b3c4-d5e6-7f8g-9h0i-j1k2l3m4n5o6" 
+        },
+        {
+            "~id": "60a137e1-897f-4cb1-b8b8-7a7090aee267",
+            "~label": "has_feature",
+            "~from": "d704ea4b-3a62-4fe7-ab74-23e25ccd493f",
+            "~to": "40f3bec4-5ce9-4147-b8e8-856b0175bc31" 
+        },
+        {
+            "~id": "00472742-f826-40d3-ad5a-fa485e269ecf",
+            "~label": "has_feature",
+            "~from": "2edbe504-c241-45d5-96a4-b5aa628e37ed",
+            "~to": "40f3bec4-5ce9-4147-b8e8-856b0175bc31" 
+        },
+        {
+            "~id": "b63a954d-6506-4f3a-9d56-2bfa390ee9d4",
+            "~label": "has_feature",
+            "~from": "f1a2b3c4-d5e6-7f8g-9h0i-j1k2l3m4n5o6",
+            "~to": "b1c2d3e4-f5a6-7b8c-9d0e-f1a2b3c4d5e6" 
+        },
         {
             "~id": "7d2e33e6-4ffc-47d7-bf53-e19a03f349ca",
             "~label": "schedule",

@@ -63,3 +63,51 @@ def bulk_load_data(g: GremlinUtils, load_mock: bool = False) -> None:
         logger.info("Data loaded successfully.")
     else:
         logger.info("No mock data provided, skipping bulk load.")
+
+
+def merge_table_data(
+    g,
+    table_name: str,
+    table_merged: str
+) -> dict:
+    try:
+        # Buscar os IDs das tabelas
+        id_table = g.V().has("TABLE", "table_name", table_name) \
+            .project("id").by(T.id).toList()[0]["id"]
+        id_table_merged = g.V().has("TABLE", "table_name", table_merged) \
+            .project("id").by(T.id).toList()[0]["id"]
+    except IndexError:
+        return {
+                "statusCode": 404,
+                "body": json.dumps({
+                    "message": "One or both tables not found."
+                }),
+            }
+
+    logger.info(
+        f"Migrando edges da tabela '{table_merged}' para '{table_name}'"
+    )
+
+    # Redireciona arestas "consumed_by" para a nova tabela
+    g.V(id_table_merged).outE("consumed_by").as_("e").inV() \
+        .addE("consumed_by").from_(__.V(id_table)) \
+        .select("e").drop().iterate()
+
+    # Redireciona arestas "produce" para a nova tabela
+    g.V(id_table_merged).inE("produce").as_("e").outV() \
+        .addE("produce").to(__.V(id_table)) \
+        .select("e").drop().iterate()
+
+    # Remove a tabela antiga
+    g.V(id_table_merged).drop().iterate()
+
+    logger.info(
+        f"Tabela '{table_merged}' mesclada com sucesso na '{table_name}'"
+        )
+
+    return {
+        "statusCode": 200,
+        "body": json.dumps({
+            "message": f"Table '{table_merged}' merged into '{table_name}'."
+        })
+    }
