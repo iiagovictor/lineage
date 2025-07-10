@@ -423,12 +423,13 @@ def get_nodes_until_dashboards(
 
 def get_ascendant_nodes_from_job(
         g: GremlinUtils,
-        jobId: str,
+        jobs_ids: list,
         level: int = 10
         ) -> list:
     """
     """
-    return g.V().has(VERTEX_LABEL_JOB, "name", jobId).as_("start") \
+    return g.V().hasLabel(VERTEX_LABEL_JOB) \
+        .has(T.id, P.within(jobs_ids)).as_("start") \
         .union(
             # Caminho original do job
             project_table(
@@ -476,10 +477,11 @@ def get_ascendant_nodes_from_job(
 
 def get_descendant_nodes_from_job(
         g: GremlinUtils,
-        jobId: str,
+        jobs_ids: list,
         level: int = 10
         ) -> list:
-    return g.V().has(VERTEX_LABEL_JOB, "name", jobId).as_("start") \
+    return g.V().hasLabel(VERTEX_LABEL_JOB) \
+        .has(T.id, P.within(jobs_ids)).as_("start") \
         .union(
             # Caminho original do job
             project_table(
@@ -537,10 +539,11 @@ def get_descendant_nodes_from_job(
 
 def get_ascendant_nodes_from_table(
         g: GremlinUtils,
-        tableId: str,
+        tables_ids: list,
         level: int = 10
         ) -> list:
-    return g.V().has(VERTEX_LABEL_TABLE, "table_name", tableId) \
+    return g.V().hasLabel(VERTEX_LABEL_TABLE) \
+        .has(T.id, P.within(tables_ids)) \
         .repeat(
                 __.as_("current_table")
                 .inE("produce").outV()
@@ -592,11 +595,11 @@ def get_ascendant_nodes_from_table(
 
 def get_descendant_nodes_from_table(
         g: GremlinUtils,
-        tableId: str,
+        tables_ids: list,
         level: int = 10
         ) -> list:
     return g.V().hasLabel(VERTEX_LABEL_TABLE) \
-        .has("table_name", tableId).as_("start") \
+        .has(T.id, P.within(tables_ids)).as_("start") \
         .union(
             # Caminho original do job
             project_job(
@@ -669,10 +672,11 @@ def get_descendant_nodes_from_table(
 
 def get_edges_from_job(
         g: GremlinUtils,
-        jobId: str,
+        jobs_ids: list,
         level: int = 10
         ) -> list:
-    return g.V().has(VERTEX_LABEL_JOB, "name", jobId).as_("job") \
+    return g.V().hasLabel(VERTEX_LABEL_JOB) \
+        .has(T.id, P.within(jobs_ids)).as_("job") \
         .union(
             # ascendant edges
             get_edge_projections(),
@@ -687,11 +691,11 @@ def get_edges_from_job(
 
 def get_edges_from_table(
         g: GremlinUtils,
-        tableId: str,
+        tables_ids: list,
         level: int = 10
         ) -> list:
     return g.V().hasLabel(VERTEX_LABEL_TABLE) \
-        .has("table_name", tableId).as_("table") \
+        .has(T.id, P.within(tables_ids)).as_("table") \
         .union(
             get_edge_projections_from_table(),
             __.repeat(asc_path_table()).emit().times(level)
@@ -708,24 +712,68 @@ def get_subgraph_of_the_job(
         jobId: str,
         level: int = 10
         ) -> list:
+    """Retorna o subgrafo de um job específico.
+    Esta função consulta o grafo para obter informações sobre um job
+    específico, identificado pelo seu ID. Ela utiliza a biblioteca Gremlin
+    para realizar consultas em grafos e retorna um dicionário contendo as
+    seguintes informações:
+    - job: Dicionário representando o job selecionado.
+    - ascendantJobs: Lista de dicionários representando os jobs ascendentes
+      relacionados ao job.
+    - ascendantTables: Lista de dicionários representando as tabelas
+      ascendentes relacionadas ao job.
+    - descendantJobs: Lista de dicionários representando os jobs descendentes
+      relacionados ao job.
+    - descendantTables: Lista de dicionários representando as tabelas
+      descendentes relacionadas ao job.
+    - features: Lista de dicionários representando as features associadas ao
+      job.
+    - models: Lista de dicionários representando os modelos associados ao
+      job.
+    - datasets: Lista de dicionários representando os datasets associados ao
+      job.
+    - analyses: Lista de dicionários representando as análises associadas ao
+      job.
+    - dashboards: Lista de dicionários representando os dashboards associados
+      ao job.
+    - edges: Lista de dicionários representando as arestas entre os nós do
+      grafo, onde cada aresta contém os campos "from" e "to" representando
+      os IDs dos vértices de origem e destino, respectivamente.
+
+    Args:
+    -----
+    g (GremlinUtils): Instância da classe GremlinUtils para realizar
+        consultas em grafos.
+    jobId (str): ID do job para o qual o subgrafo será recuperado.
+    level (int): Nível de profundidade para a busca de nós ascendentes e
+        descendentes. O padrão é 10, o que significa que a busca irá até
+        10 níveis acima e abaixo do job.
+
+    Returns:
+    -------
+    dict: Um dicionário contendo as informações sobre o job e seus
+        relacionamentos no grafo, incluindo o job selecionado, jobs
+        ascendentes e descendentes, tabelas ascendentes e descendentes,
+        features, modelos, datasets, análises, dashboards e arestas.
+    """
+    job_select = project_job(
+        g.V().has(VERTEX_LABEL_JOB, "name", jobId)
+        ).dedup().toList()
+
+    job_id = job_select[0]["id"] if job_select else None
+
     with ThreadPoolExecutor(max_workers=4) as executor:
-        future_job = executor.submit(
-            lambda: project_job(
-                g.V().has(VERTEX_LABEL_JOB, "name", jobId)
-            ).dedup().toList()
-        )
         future_asc = executor.submit(
-            get_ascendant_nodes_from_job, g, jobId, level
+            get_ascendant_nodes_from_job, g, [job_id], level
             )
         future_desc = executor.submit(
-            get_descendant_nodes_from_job, g, jobId, level
+            get_descendant_nodes_from_job, g, [job_id], level
             )
         future_edges = executor.submit(
-            get_edges_from_job, g, jobId, level
+            get_edges_from_job, g, [job_id], level
             )
 
         # Coletando os resultados
-        job_select = future_job.result()
         ascendant = future_asc.result()
         descendant = future_desc.result()
         raw_edges = future_edges.result()
@@ -790,13 +838,59 @@ def get_subgraph_of_the_table(
         tableId: str,
         level: int = 10
         ) -> list:
+    """Retorna o subgrafo de uma tabela específica.
+    Esta função consulta o grafo para obter informações sobre uma tabela
+    específica, identificada pelo seu ID. Ela utiliza a biblioteca Gremlin
+    para realizar consultas em grafos e retorna um dicionário contendo as
+    seguintes informações:
+    - table: Dicionário representando a tabela selecionada.
+    - sourceJob: Lista de dicionários representando os jobs que produzem a
+      tabela.
+    - ascendantJobs: Lista de dicionários representando os jobs ascendentes
+      relacionados à tabela.
+    - ascendantTables: Lista de dicionários representando as tabelas
+      ascendentes relacionadas à tabela.
+    - descendantJobs: Lista de dicionários representando os jobs descendentes
+      relacionados à tabela.
+    - descendantTables: Lista de dicionários representando as tabelas
+      descendentes relacionadas à tabela.
+    - features: Lista de dicionários representando as features associadas à
+      tabela.
+    - models: Lista de dicionários representando os modelos associados à
+      tabela.
+    - datasets: Lista de dicionários representando os datasets associados à
+      tabela.
+    - analyses: Lista de dicionários representando as análises associadas à
+      tabela.
+    - dashboards: Lista de dicionários representando os dashboards associados
+      à tabela.
+    - edges: Lista de dicionários representando as arestas entre os nós do
+      grafo, onde cada aresta contém os campos "from" e "to" representando
+      os IDs dos vértices de origem e destino, respectivamente.
+
+    Args:
+    -----
+    g (GremlinUtils): Instância da classe GremlinUtils para realizar
+        consultas em grafos.
+    tableId (str): ID da tabela para a qual o subgrafo será recuperado.
+    level (int): Nível de profundidade para a busca de nós ascendentes e
+        descendentes. O padrão é 10, o que significa que a busca irá até
+        10 níveis acima e abaixo da tabela.
+
+    Returns:
+    -------
+    dict: Um dicionário contendo as informações sobre a tabela e seus
+        relacionamentos no grafo, incluindo a tabela selecionada, jobs
+        ascendentes e descendentes, tabelas ascendentes e descendentes,
+        features, modelos, datasets, análises, dashboards e arestas.
+    """
+    table_select = project_table(
+        g.V().has(VERTEX_LABEL_TABLE, "table_name", tableId)
+        ).dedup().toList()
+
+    table_id = table_select[0]["id"] if table_select else None
 
     with ThreadPoolExecutor(max_workers=5) as executor:
-        future_table = executor.submit(
-            lambda: project_table(
-                g.V().has(VERTEX_LABEL_TABLE, "table_name", tableId)
-            ).dedup().toList()
-        )
         future_source_job = executor.submit(
             lambda: project_job(
                 g.V().has(VERTEX_LABEL_TABLE, "table_name", tableId)
@@ -806,17 +900,15 @@ def get_subgraph_of_the_table(
             ).dedup().toList()
         )
         future_asc = executor.submit(
-            get_ascendant_nodes_from_table, g, tableId, level
+            get_ascendant_nodes_from_table, g, [table_id], level
             )
         future_desc = executor.submit(
-            get_descendant_nodes_from_table, g, tableId, level
+            get_descendant_nodes_from_table, g, [table_id], level
             )
         future_edges = executor.submit(
-            get_edges_from_table, g, tableId, level
+            get_edges_from_table, g, [table_id], level
             )
 
-        # Coletando os resultados
-        table_select = future_table.result()
         source_job = future_source_job.result()
         ascendant = future_asc.result()
         descendant = future_desc.result()
