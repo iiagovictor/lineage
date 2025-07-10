@@ -55,7 +55,7 @@ def lambda_handler(event, context):
 
         response = merge_table_data(
             g=g,
-            table_name=node_name,
+            tableId=node_name,
             table_merged=table_merged
             )
         return response
@@ -63,13 +63,13 @@ def lambda_handler(event, context):
         if node_type == "TABLE":
             response = get_subgraph_of_the_table(
                 g=g,
-                table_name=node_name,
+                tableId=node_name,
                 level=50
                 )
         elif node_type == "JOB":
             response = get_subgraph_of_the_job(
                 g=g,
-                job_name=node_name,
+                jobId=node_name,
                 level=50
                 )
         else:

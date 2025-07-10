@@ -266,6 +266,15 @@
                 "location_path:String": "s3://bucket-teste/table14/",
                 "status:String": "ACTIVE",
                 "dt_update:String": "2025-06-28 14:15:00 UTC"
+            },
+            {
+                "~id": "dfe3ddcf-f8bd-447b-8c79-ea93b18bfa0b",
+                "~label": "TABLE",
+                "table_name:String": "TableExtra",
+                "db_name:String": "Database1",
+                "location_path:String": "s3://bucket-teste/table15/",
+                "status:String": "ACTIVE",
+                "dt_update:String": "2025-06-28 14:00:00 UTC"
             }
         ],
         "features": [
@@ -519,7 +528,7 @@
         {
             "~id": "e7b1a6ce-6eab-4239-b28b-19332a6430db",
             "~label": "consumed_by",
-            "~from": "950a074a-febb-486a-8967-3ded4156ac63",
+            "~from": "dfe3ddcf-f8bd-447b-8c79-ea93b18bfa0b",
             "~to": "c8e031d7-07fd-4d6b-b015-86798ee81795"
         },
         {

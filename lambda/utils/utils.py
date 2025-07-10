@@ -67,12 +67,12 @@ def bulk_load_data(g: GremlinUtils, load_mock: bool = False) -> None:
 
 def merge_table_data(
     g,
-    table_name: str,
+    tableId: str,
     table_merged: str
 ) -> dict:
     try:
         # Buscar os IDs das tabelas
-        id_table = g.V().has("TABLE", "table_name", table_name) \
+        id_table = g.V().has("TABLE", "table_name", tableId) \
             .project("id").by(T.id).toList()[0]["id"]
         id_table_merged = g.V().has("TABLE", "table_name", table_merged) \
             .project("id").by(T.id).toList()[0]["id"]
@@ -85,7 +85,7 @@ def merge_table_data(
             }
 
     logger.info(
-        f"Migrando edges da tabela '{table_merged}' para '{table_name}'"
+        f"Migrando edges da tabela '{table_merged}' para '{tableId}'"
     )
 
     # Redireciona arestas "consumed_by" para a nova tabela
@@ -102,12 +102,12 @@ def merge_table_data(
     g.V(id_table_merged).drop().iterate()
 
     logger.info(
-        f"Tabela '{table_merged}' mesclada com sucesso na '{table_name}'"
+        f"Tabela '{table_merged}' mesclada com sucesso na '{tableId}'"
         )
 
     return {
         "statusCode": 200,
         "body": json.dumps({
-            "message": f"Table '{table_merged}' merged into '{table_name}'."
+            "message": f"Table '{table_merged}' merged into '{tableId}'."
         })
     }

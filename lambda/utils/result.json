@@ -1,36 +1,29 @@
 {
 	"message": "Successfully retrieved subgraph.",
 	"data": {
-		"job": {
-			"id": "30d1e004-0579-44d8-a5e7-a19a0a2868f2",
-			"label": "JOB",
-			"name": "Job1",
-			"account_id": "123456789012",
-			"sigla": "TS1",
-			"tool": "Glue",
+		"table": {
+			"id": "467aa82a-cf37-418d-a1d5-c80e2ed10159",
+			"label": "TABLE",
+			"table_name": "Table7",
+			"db_name": "Database1",
+			"location_path": "s3://bucket-teste/table7/",
 			"status": "ACTIVE",
-			"dt_update": "2025-06-29 12:00:00 UTC"
+			"dt_update": "2025-06-28 15:45:00 UTC"
 		},
+		"sourceJob": [
+			{
+				"id": "30d1e004-0579-44d8-a5e7-a19a0a2868f2",
+				"label": "JOB",
+				"name": "Job1",
+				"account_id": "123456789012",
+				"sigla": "TS1",
+				"tool": "Glue",
+				"status": "ACTIVE",
+				"dt_update": "2025-06-29 12:00:00 UTC"
+			}
+		],
 		"ascendantJobs": [],
 		"ascendantTables": [
-			{
-				"id": "ed43b9a9-a4c9-496a-ab41-0d956dd974d8",
-				"label": "TABLE",
-				"table_name": "Table4",
-				"db_name": "Database1",
-				"location_path": "s3://bucket-teste/table4/",
-				"status": "ACTIVE",
-				"dt_update": "2025-06-28 18:30:00 UTC"
-			},
-			{
-				"id": "c7b8b588-608c-4c51-88f2-f21fbe913024",
-				"label": "TABLE",
-				"table_name": "Table3",
-				"db_name": "Database1",
-				"location_path": "s3://bucket-teste/table3/",
-				"status": "ACTIVE",
-				"dt_update": "2025-06-28 19:45:00 UTC"
-			},
 			{
 				"id": "0094f9bf-d322-46f9-b700-af40c2201d05",
 				"label": "TABLE",
@@ -48,6 +41,24 @@
 				"location_path": "s3://bucket-teste/table6/",
 				"status": "ACTIVE",
 				"dt_update": "2025-06-28 16:00:00 UTC"
+			},
+			{
+				"id": "c7b8b588-608c-4c51-88f2-f21fbe913024",
+				"label": "TABLE",
+				"table_name": "Table3",
+				"db_name": "Database1",
+				"location_path": "s3://bucket-teste/table3/",
+				"status": "ACTIVE",
+				"dt_update": "2025-06-28 19:45:00 UTC"
+			},
+			{
+				"id": "ed43b9a9-a4c9-496a-ab41-0d956dd974d8",
+				"label": "TABLE",
+				"table_name": "Table4",
+				"db_name": "Database1",
+				"location_path": "s3://bucket-teste/table4/",
+				"status": "ACTIVE",
+				"dt_update": "2025-06-28 18:30:00 UTC"
 			},
 			{
 				"id": "c3394311-b349-40fb-9079-604c02827034",
@@ -112,15 +123,6 @@
 		],
 		"descendantTables": [
 			{
-				"id": "467aa82a-cf37-418d-a1d5-c80e2ed10159",
-				"label": "TABLE",
-				"table_name": "Table7",
-				"db_name": "Database1",
-				"location_path": "s3://bucket-teste/table7/",
-				"status": "ACTIVE",
-				"dt_update": "2025-06-28 15:45:00 UTC"
-			},
-			{
 				"id": "950a074a-febb-486a-8967-3ded4156ac63",
 				"label": "TABLE",
 				"table_name": "Table8",
@@ -128,6 +130,15 @@
 				"location_path": "s3://bucket-teste/table8/",
 				"status": "ACTIVE",
 				"dt_update": "2025-06-28 15:30:00 UTC"
+			},
+			{
+				"id": "d118a4b1-8bcd-457c-af37-36469b21393e",
+				"label": "TABLE",
+				"table_name": "Table9",
+				"db_name": "Database1",
+				"location_path": "s3://bucket-teste/table9/",
+				"status": "ACTIVE",
+				"dt_update": "2025-06-28 15:15:00 UTC"
 			},
 			{
 				"id": "3e4f5a6b-7c8d-9e0f-a1b2-c3d4e5f6a7b8",
@@ -155,20 +166,55 @@
 				"location_path": "s3://bucket-teste/table10/",
 				"status": "ACTIVE",
 				"dt_update": "2025-06-28 15:00:00 UTC"
+			},
+			{
+				"id": "1f849355-0fa7-4832-b4b4-3d9198af459c",
+				"label": "TABLE",
+				"table_name": "Table11",
+				"db_name": "Database1",
+				"location_path": "s3://bucket-teste/table11/",
+				"status": "ACTIVE",
+				"dt_update": "2025-06-28 14:45:00 UTC"
 			}
 		],
+		"features": [
+			{
+				"id": "d704ea4b-3a62-4fe7-ab74-23e25ccd493f",
+				"label": "FEATURE",
+				"feature_name": "Feature1"
+			},
+			{
+				"id": "2edbe504-c241-45d5-96a4-b5aa628e37ed",
+				"label": "FEATURE",
+				"feature_name": "Feature2"
+			}
+		],
+		"models": [
+			{
+				"id": "40f3bec4-5ce9-4147-b8e8-856b0175bc31",
+				"label": "MODEL",
+				"model_name": "Model1"
+			}
+		],
+		"datasets": [],
+		"analyses": [],
+		"dashboards": [],
 		"edges": [
+			{
+				"from": "467aa82a-cf37-418d-a1d5-c80e2ed10159",
+				"to": "b2c1e004-0579-44d8-a5e7-a19a0a2868f3"
+			},
+			{
+				"from": "467aa82a-cf37-418d-a1d5-c80e2ed10159",
+				"to": "c3d1e004-0579-44d8-a5e7-a19a0a2868f4"
+			},
+			{
+				"from": "467aa82a-cf37-418d-a1d5-c80e2ed10159",
+				"to": "e5f1e004-0579-44d8-a5e7-a19a0a2868f6"
+			},
 			{
 				"from": "30d1e004-0579-44d8-a5e7-a19a0a2868f2",
 				"to": "467aa82a-cf37-418d-a1d5-c80e2ed10159"
-			},
-			{
-				"from": "ed43b9a9-a4c9-496a-ab41-0d956dd974d8",
-				"to": "30d1e004-0579-44d8-a5e7-a19a0a2868f2"
-			},
-			{
-				"from": "c7b8b588-608c-4c51-88f2-f21fbe913024",
-				"to": "30d1e004-0579-44d8-a5e7-a19a0a2868f2"
 			},
 			{
 				"from": "0094f9bf-d322-46f9-b700-af40c2201d05",
@@ -176,6 +222,14 @@
 			},
 			{
 				"from": "8e7c3be6-e972-42b6-ad60-e96c5be789c2",
+				"to": "30d1e004-0579-44d8-a5e7-a19a0a2868f2"
+			},
+			{
+				"from": "c7b8b588-608c-4c51-88f2-f21fbe913024",
+				"to": "30d1e004-0579-44d8-a5e7-a19a0a2868f2"
+			},
+			{
+				"from": "ed43b9a9-a4c9-496a-ab41-0d956dd974d8",
 				"to": "30d1e004-0579-44d8-a5e7-a19a0a2868f2"
 			},
 			{
@@ -187,20 +241,24 @@
 				"to": "30d1e004-0579-44d8-a5e7-a19a0a2868f2"
 			},
 			{
+				"from": "d118a4b1-8bcd-457c-af37-36469b21393e",
+				"to": "d4e1e004-0579-44d8-a5e7-a19a0a2868f5"
+			},
+			{
+				"from": "d118a4b1-8bcd-457c-af37-36469b21393e",
+				"to": "e5f1e004-0579-44d8-a5e7-a19a0a2868f6"
+			},
+			{
+				"from": "2c3d4e5f-6a7b-8c9d-a0b1-c2d3e4f5a6b7",
+				"to": "e5f1e004-0579-44d8-a5e7-a19a0a2868f6"
+			},
+			{
 				"from": "b2c1e004-0579-44d8-a5e7-a19a0a2868f3",
 				"to": "950a074a-febb-486a-8967-3ded4156ac63"
 			},
 			{
-				"from": "467aa82a-cf37-418d-a1d5-c80e2ed10159",
-				"to": "b2c1e004-0579-44d8-a5e7-a19a0a2868f3"
-			},
-			{
 				"from": "c3d1e004-0579-44d8-a5e7-a19a0a2868f4",
-				"to": "950a074a-febb-486a-8967-3ded4156ac63"
-			},
-			{
-				"from": "467aa82a-cf37-418d-a1d5-c80e2ed10159",
-				"to": "c3d1e004-0579-44d8-a5e7-a19a0a2868f4"
+				"to": "d118a4b1-8bcd-457c-af37-36469b21393e"
 			},
 			{
 				"from": "e5f1e004-0579-44d8-a5e7-a19a0a2868f6",
@@ -211,24 +269,28 @@
 				"to": "2c3d4e5f-6a7b-8c9d-a0b1-c2d3e4f5a6b7"
 			},
 			{
-				"from": "2c3d4e5f-6a7b-8c9d-a0b1-c2d3e4f5a6b7",
-				"to": "e5f1e004-0579-44d8-a5e7-a19a0a2868f6"
-			},
-			{
-				"from": "467aa82a-cf37-418d-a1d5-c80e2ed10159",
-				"to": "e5f1e004-0579-44d8-a5e7-a19a0a2868f6"
-			},
-			{
-				"from": "950a074a-febb-486a-8967-3ded4156ac63",
-				"to": "e5f1e004-0579-44d8-a5e7-a19a0a2868f6"
-			},
-			{
 				"from": "d4e1e004-0579-44d8-a5e7-a19a0a2868f5",
 				"to": "bda14858-552e-4e8c-b309-cce3cedbfbb1"
 			},
 			{
-				"from": "950a074a-febb-486a-8967-3ded4156ac63",
-				"to": "d4e1e004-0579-44d8-a5e7-a19a0a2868f5"
+				"from": "d4e1e004-0579-44d8-a5e7-a19a0a2868f5",
+				"to": "1f849355-0fa7-4832-b4b4-3d9198af459c"
+			},
+			{
+				"from": "3e4f5a6b-7c8d-9e0f-a1b2-c3d4e5f6a7b8",
+				"to": "d704ea4b-3a62-4fe7-ab74-23e25ccd493f"
+			},
+			{
+				"from": "3e4f5a6b-7c8d-9e0f-a1b2-c3d4e5f6a7b8",
+				"to": "2edbe504-c241-45d5-96a4-b5aa628e37ed"
+			},
+			{
+				"from": "d704ea4b-3a62-4fe7-ab74-23e25ccd493f",
+				"to": "40f3bec4-5ce9-4147-b8e8-856b0175bc31"
+			},
+			{
+				"from": "2edbe504-c241-45d5-96a4-b5aa628e37ed",
+				"to": "40f3bec4-5ce9-4147-b8e8-856b0175bc31"
 			}
 		]
 	}
