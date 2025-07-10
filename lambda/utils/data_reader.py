@@ -806,13 +806,15 @@ def get_subgraph_of_the_job(
     ]
 
     ascendant_jobs = [
-        item for item in ascendant if item['label'] == VERTEX_LABEL_JOB
+        item for item in ascendant
+        if item['label'] == VERTEX_LABEL_JOB and item['id'] != job_id
     ]
     ascendant_tables = [
         item for item in ascendant if item['label'] == VERTEX_LABEL_TABLE
     ]
     descendant_jobs = [
-        item for item in descendant if item['label'] == VERTEX_LABEL_JOB
+        item for item in descendant
+        if item['label'] == VERTEX_LABEL_JOB and item['id'] != job_id
     ]
     descendant_tables = [
         item for item in descendant if item['label'] == VERTEX_LABEL_TABLE
@@ -946,13 +948,15 @@ def get_subgraph_of_the_table(
         item for item in ascendant if item['label'] == VERTEX_LABEL_JOB
     ]
     ascendant_tables = [
-        item for item in ascendant if item['label'] == VERTEX_LABEL_TABLE
+        item for item in ascendant
+        if item['label'] == VERTEX_LABEL_TABLE and item["id"] != table_id
     ]
     descendant_jobs = [
         item for item in descendant if item['label'] == VERTEX_LABEL_JOB
     ]
     descendant_tables = [
-        item for item in descendant if item['label'] == VERTEX_LABEL_TABLE
+        item for item in descendant
+        if item['label'] == VERTEX_LABEL_TABLE and item["id"] != table_id
     ]
     return {
         "table": table_select[0] if table_select else {},
